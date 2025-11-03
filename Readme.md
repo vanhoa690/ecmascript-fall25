@@ -4,6 +4,8 @@
 
 #### Link tài liệu: https://drive.google.com/drive/folders/1UuHWicp9YtJui_tj6SBl0U7jZ8pa74DG
 
+#### Link Ôn tập Javascript: https://github.com/chinhpd5/WEB2064/blob/main/note/lesson01.md
+
 ## Giới thiệu môn học
 
 Lập trình ECMAScript là môn học cung cấp các kiến thức về chuẩn ECMAScript 6. Trong khóa học này, bạn sẽ đi sâu vào những thay đổi mới nhất được thực hiện đối với ngôn ngữ lập trình JavaScript với ECMAScript đặc biệt là phiên bản ECMAScript 2015 (ES6).
