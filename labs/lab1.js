@@ -1,3 +1,17 @@
+console.log("Hello lab 1");
+
+const title = "San pham A";
+title = "San pham B"; // reasign gia tri
+// redeclare
+// const title = "ccc"; // sai
+const product = {
+  title, // title : title
+};
+
+// {
+//   name;
+// }
+
 // Bài tập 1: Sử dụng let, const và Template Literals
 
 // Viết hàm tính chỉ số BMI (Body Mass Index) với công thức:
