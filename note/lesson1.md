@@ -231,7 +231,7 @@ console.log(book.calculateDiscount(10)); // Giảm 10%
 **Câu 1:** Sự khác biệt chính giữa `var` và `let` là:
 
 A. var có block scope, let có function scope  
-B. ✅ var có function scope, let có block scope  
+B. var có function scope, let có block scope  
 C. Cả hai đều có block scope  
 D. Không có sự khác biệt
 
@@ -241,7 +241,7 @@ D. Không có sự khác biệt
 
 A. Dấu nháy đơn ''  
 B. Dấu nháy kép ""  
-C. ✅ Dấu backtick ``  
+C. Dấu backtick ``  
 D. Dấu ngoặc kép []
 
 ---
@@ -249,7 +249,7 @@ D. Dấu ngoặc kép []
 **Câu 3:** Trong enhanced object literals, `{name}` tương đương với:
 
 A. {name: "name"}  
-B. ✅ {name: name}  
+B. {name: name}  
 C. {"name": name}  
 D. Cả B và C
 
@@ -259,7 +259,7 @@ D. Cả B và C
 
 A. Có thể reassign giá trị  
 B. Có thể redeclare  
-C. ✅ Phải khởi tạo giá trị khi khai báo  
+C. Phải khởi tạo giá trị khi khai báo  
 D. Có function scope
 
 ---

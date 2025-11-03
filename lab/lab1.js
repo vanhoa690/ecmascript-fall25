@@ -30,3 +30,7 @@
 // const book = createBook("JavaScript ES6", "John Doe", 2023, 200000);
 // console.log(book.getBookInfo());
 // console.log(book.calculateDiscount(10)); // Giảm 10%
+
+const book = {
+  title,
+};
