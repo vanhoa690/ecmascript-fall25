@@ -27,3 +27,18 @@ constExample();
 // bai tap 1
 // bai tap 2
 // bai tap 3
+
+{
+  let x = 1;
+  var y = 2;
+  console.log(x);
+}
+
+console.log(y);
+
+const arr = [1, 2, 3];
+arr.push(4, 5, 6);
+
+const a = 5;
+const b = 3;
+console.log(`Kết quả: ${a + b * 2}`);
