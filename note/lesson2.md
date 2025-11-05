@@ -317,10 +317,13 @@ C. "Kết quả: ${a + b _ 2}"
 D. "Kết quả: 5 + 3 _ 2"
 
 **Câu 4:** Template literals cho phép:
-A. String interpolation  
-B. Multi-line strings  
-C. Cả A và B  
+
+```
+A. String interpolation
+B. Multi-line strings
+C. Cả A và B
 D. Không cái nào ở trên
+```
 
 ### Phần 3: Enhanced Object Literals
 
@@ -363,107 +366,3 @@ C. undefined
 D. Lỗi
 
 ---
-
-## Đáp án
-
-### Bài tập thực hành
-
-**Bài 1.1:**
-
-```javascript
-// Sửa bằng let
-for (let i = 0; i < 3; i++) {
-  setTimeout(function () {
-    console.log(i); // In ra 0,1,2
-  }, 100);
-}
-```
-
-**Bài 1.2:**
-
-```javascript
-const student = {
-  name: "ThuyTien",
-  age: 20,
-};
-
-// 1. Thêm thuộc tính grade
-student.grade = "A";
-
-// 2. Thay đổi tuổi
-student.age = 21;
-
-// 3. In ra thông tin
-console.log(student);
-```
-
-**Bài 2.1:**
-
-```javascript
-const emailTemplate = `
-Kính chào ${user.firstName} ${user.lastName},
-
-Cảm ơn bạn đã đặt hàng sản phẩm ${user.product} 
-với giá ${user.price.toLocaleString()} VND 
-vào ngày ${user.orderDate}.
-
-Trân trọng,
-Cửa hàng ABC
-`;
-```
-
-**Bài 2.2:**
-
-```javascript
-const productCard = `
-<div class="product-card">
-    <h3>${product.name}</h3>
-    <p class="original-price">${product.price.toLocaleString()} VND</p>
-    <p class="discount">Giảm ${product.discount}%</p>
-    <p class="final-price">Chỉ còn ${finalPrice.toLocaleString()} VND</p>
-    <button ${!product.inStock ? "disabled" : ""}>
-        ${product.inStock ? "Mua ngay" : "Hết hàng"}
-    </button>
-</div>
-`;
-```
-
-**Bài 3.1:**
-
-```javascript
-const rectangle = {
-  width,
-  height,
-  color,
-  calculateArea() {
-    return this.width * this.height;
-  },
-  describe() {
-    return `Rectangle ${this.width}x${this.height}, color: ${this.color}`;
-  },
-};
-```
-
-**Bài 3.2:**
-
-```javascript
-const config = {
-  [`api_${env}_${version}`]: `https://api.${env}.com/${version}`,
-  features: features.reduce((acc, feature) => {
-    acc[`feature_${feature}`] = true;
-    return acc;
-  }, {}),
-  [`get${env.charAt(0).toUpperCase() + env.slice(1)}Config`]() {
-    return this[`api_${env}_${version}`];
-  },
-};
-```
-
-### Đáp án trắc nghiệm
-
-1. B
-2. C
-3. A
-4. C
-5. B, C, D
-6. A
