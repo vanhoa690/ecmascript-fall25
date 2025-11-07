@@ -3,9 +3,11 @@
 ## 1. Arrow Functions
 
 ### Lý thuyết
+
 Arrow functions (hàm mũi tên) là cú pháp ngắn gọn để viết hàm trong ES6+:
 
 **Đặc điểm:**
+
 - Ngắn gọn hơn function thông thường
 - Không có `this`, `arguments`, `super`, hoặc `new.target` riêng
 - Không thể dùng làm constructor (không thể gọi với `new`)
@@ -16,19 +18,19 @@ Arrow functions (hàm mũi tên) là cú pháp ngắn gọn để viết hàm tr
 ```javascript
 // Function thông thường
 function sum(a, b) {
-    return a + b;
+  return a + b;
 }
 
 // Arrow function tương đương
 const sumArrow = (a, b) => {
-    return a + b;
+  return a + b;
 };
 
 // Arrow function rút gọn (khi chỉ có 1 biểu thức)
 const sumShort = (a, b) => a + b;
 
 // Với 1 tham số - có thể bỏ dấu ngoặc
-const square = x => x * x;
+const square = (x) => x * x;
 
 // Không có tham số
 const sayHello = () => console.log("Hello!");
@@ -38,8 +40,8 @@ const createUser = (name, age) => ({ name, age });
 
 // Sử dụng với array methods
 const numbers = [1, 2, 3, 4, 5];
-const doubled = numbers.map(num => num * 2);
-const evens = numbers.filter(num => num % 2 === 0);
+const doubled = numbers.map((num) => num * 2);
+const evens = numbers.filter((num) => num % 2 === 0);
 ```
 
 ### Vấn đề với `this`
@@ -47,30 +49,31 @@ const evens = numbers.filter(num => num % 2 === 0);
 ```javascript
 // Với function thông thường
 const obj1 = {
-    name: "Object 1",
-    tasks: ["task1", "task2", "task3"],
-    showTasks: function() {
-        this.tasks.forEach(function(task) {
-            console.log(this.name + ": " + task); // this.name là undefined
-        });
-    }
+  name: "Object 1",
+  tasks: ["task1", "task2", "task3"],
+  showTasks: function () {
+    this.tasks.forEach(function (task) {
+      console.log(this.name + ": " + task); // this.name là undefined
+    });
+  },
 };
 
 // Giải pháp với arrow function
 const obj2 = {
-    name: "Object 2",
-    tasks: ["task1", "task2", "task3"],
-    showTasks: function() {
-        this.tasks.forEach(task => {
-            console.log(this.name + ": " + task); // this.name hoạt động đúng
-        });
-    }
+  name: "Object 2",
+  tasks: ["task1", "task2", "task3"],
+  showTasks: function () {
+    this.tasks.forEach((task) => {
+      console.log(this.name + ": " + task); // this.name hoạt động đúng
+    });
+  },
 };
 ```
 
 ## 2. Default Parameters
 
 ### Lý thuyết
+
 Cho phép khai báo giá trị mặc định cho tham số hàm khi không được truyền vào hoặc truyền `undefined`.
 
 ### Ví dụ minh họa
@@ -78,41 +81,41 @@ Cho phép khai báo giá trị mặc định cho tham số hàm khi không đư�
 ```javascript
 // Không có default parameters (ES5)
 function greet1(name) {
-    name = name || "Guest";
-    return "Hello, " + name;
+  name = name || "Guest";
+  return "Hello, " + name;
 }
 
 // Với default parameters (ES6+)
 function greet2(name = "Guest") {
-    return `Hello, ${name}`;
+  return `Hello, ${name}`;
 }
 
 // Multiple default parameters
 function createOrder(product, quantity = 1, price = 100) {
-    return {
-        product,
-        quantity,
-        price,
-        total: quantity * price
-    };
+  return {
+    product,
+    quantity,
+    price,
+    total: quantity * price,
+  };
 }
 
 // Default parameters với expressions
 function getCurrentYear() {
-    return new Date().getFullYear();
+  return new Date().getFullYear();
 }
 
 function createProfile(name, birthYear = getCurrentYear() - 18) {
-    return {
-        name,
-        birthYear,
-        age: getCurrentYear() - birthYear
-    };
+  return {
+    name,
+    birthYear,
+    age: getCurrentYear() - birthYear,
+  };
 }
 
 // Tham số mặc định có thể tham chiếu đến tham số trước đó
 function calculateArea(width, height = width) {
-    return width * height;
+  return width * height;
 }
 
 console.log(greet2()); // "Hello, Guest"
@@ -131,23 +134,23 @@ console.log(calculateArea(5, 3)); // 15 (hình chữ nhật)
 ```javascript
 // Thu thập tất cả tham số
 function sumAll(...numbers) {
-    return numbers.reduce((total, num) => total + num, 0);
+  return numbers.reduce((total, num) => total + num, 0);
 }
 
 // Kết hợp với tham số thông thường
 function introduce(name, age, ...hobbies) {
-    console.log(`Name: ${name}`);
-    console.log(`Age: ${age}`);
-    console.log(`Hobbies: ${hobbies.join(", ")}`);
+  console.log(`Name: ${name}`);
+  console.log(`Age: ${age}`);
+  console.log(`Hobbies: ${hobbies.join(", ")}`);
 }
 
 // Destructuring với rest
 const [first, second, ...rest] = [1, 2, 3, 4, 5];
-const { name, age, ...otherInfo } = { 
-    name: "John", 
-    age: 25, 
-    city: "Hanoi", 
-    country: "Vietnam" 
+const { name, age, ...otherInfo } = {
+  name: "John",
+  age: 25,
+  city: "Hanoi",
+  country: "Vietnam",
 };
 
 console.log(sumAll(1, 2, 3, 4, 5)); // 15
@@ -192,48 +195,51 @@ const newArray = [0, ...numbers, 6]; // [0, 1, 2, 3, 4, 5, 6]
 ## Bài tập thực hành
 
 ### Bài tập 1: Chuyển đổi hàm
+
 Chuyển các hàm sau thành arrow functions:
 
 ```javascript
 // Function 1
 function multiply(a, b) {
-    return a * b;
+  return a * b;
 }
 
 // Function 2
 function isPositive(number) {
-    return number >= 0;
+  return number >= 0;
 }
 
 // Function 3
 function getRandomNumber() {
-    return Math.random();
+  return Math.random();
 }
 
 // Function 4
-document.addEventListener("click", function() {
-    console.log("Clicked!");
+document.addEventListener("click", function () {
+  console.log("Clicked!");
 });
 ```
 
 ### Bài tập 2: Sử dụng Default Parameters
+
 Viết lại hàm sau sử dụng default parameters:
 
 ```javascript
 function createUser(name, age, isAdmin) {
-    if (name === undefined) name = "Anonymous";
-    if (age === undefined) age = 18;
-    if (isAdmin === undefined) isAdmin = false;
-    
-    return {
-        name: name,
-        age: age,
-        isAdmin: isAdmin
-    };
+  if (name === undefined) name = "Anonymous";
+  if (age === undefined) age = 18;
+  if (isAdmin === undefined) isAdmin = false;
+
+  return {
+    name: name,
+    age: age,
+    isAdmin: isAdmin,
+  };
 }
 ```
 
 ### Bài tập 3: Rest và Spread
+
 Viết các hàm sau:
 
 1. Hàm `mergeArrays` nhận nhiều mảng và trả về mảng hợp nhất
@@ -241,73 +247,23 @@ Viết các hàm sau:
 3. Hàm `createProduct` nhận thông tin sản phẩm và trả về object sản phẩm với giá trị mặc định
 
 ### Bài tập 4: Ứng dụng thực tế
+
 Tạo hàm `shoppingCart` với:
+
 - Tham số đầu tiên là tên khách hàng
 - Các tham số tiếp theo là các sản phẩm
 - Sử dụng rest parameters để thu thập sản phẩm
 - Trả về object chứa thông tin đơn hàng
 
-## Đáp án bài tập
-
-### Bài tập 1:
-```javascript
-// 1
-const multiply = (a, b) => a * b;
-
-// 2
-const isPositive = number => number >= 0;
-
-// 3
-const getRandomNumber = () => Math.random();
-
-// 4
-document.addEventListener("click", () => console.log("Clicked!"));
-```
-
-### Bài tập 2:
-```javascript
-function createUser(name = "Anonymous", age = 18, isAdmin = false) {
-    return { name, age, isAdmin };
-}
-```
-
-### Bài tập 3:
-```javascript
-// 1
-const mergeArrays = (...arrays) => [].concat(...arrays);
-
-// 2
-const sumAll = (...numbers) => numbers.reduce((sum, num) => sum + num, 0);
-
-// 3
-function createProduct(name, price = 0, category = "uncategorized", inStock = true) {
-    return { name, price, category, inStock };
-}
-```
-
-### Bài tập 4:
-```javascript
-function shoppingCart(customerName, ...products) {
-    return {
-        customer: customerName,
-        items: products,
-        orderDate: new Date(),
-        totalItems: products.length
-    };
-}
-
-// Sử dụng
-const order = shoppingCart("Alice", "Laptop", "Mouse", "Keyboard");
-console.log(order);
-```
-
 ## Câu hỏi trắc nghiệm
 
 **1. Kết quả của đoạn code sau là gì?**
+
 ```javascript
 const multiply = (a, b) => a * b;
 console.log(multiply(5));
 ```
+
 A. 5  
 B. NaN  
 C. undefined  
@@ -320,23 +276,27 @@ C. `const func = () => { console.log("Hello"); };`
 D. `const func = x, y => x + y;`
 
 **3. Kết quả của đoạn code sau là gì?**
+
 ```javascript
 function greet(name = "Guest", message = "Hello") {
-    return `${message}, ${name}!`;
+  return `${message}, ${name}!`;
 }
 console.log(greet(undefined, "Hi"));
 ```
+
 A. "Hello, Guest!"  
 B. "Hi, Guest!"  
 C. "Hello, undefined!"  
 D. Lỗi
 
 **4. Kết quả của đoạn code sau là gì?**
+
 ```javascript
 const numbers = [1, 2, 3];
 const newNumbers = [...numbers, 4, 5, 6];
 console.log(newNumbers.length);
 ```
+
 A. 3  
 B. 6  
 C. [1, 2, 3, 4, 5, 6]  
@@ -349,10 +309,3 @@ C. `const sum = ...numbers => numbers.reduce((a, b) => a + b);`
 D. `const sum = (a, b, ...rest) => a + b + rest;`
 
 ---
-
-**Đáp án:**
-1. B (NaN - vì b là undefined, 5 * undefined = NaN)
-2. D (thiếu dấu ngoặc quanh tham số khi có nhiều hơn 1 tham số)
-3. B ("Hi, Guest!" - name nhận giá trị mặc định "Guest", message nhận "Hi")
-4. B (6 - mảng mới có 6 phần tử)
-5. A (cú pháp rest parameters đúng)
