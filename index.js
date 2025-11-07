@@ -1,3 +1,5 @@
-const a = false ?? 1;
-// console.log(a); // 1 : 0 : Falsy: false, null va underfined, 0, NaN, ap dung ||
-console.log(a); // 0 : ap dung ?? check null va underfined
+/*
+ * Lesson1: https://github.com/vanhoa690/ecmascript-fall25/blob/main/note/lesson1.md
+ * Lesson2: https://github.com/vanhoa690/ecmascript-fall25/blob/main/note/lesson2.md
+ * Lesson3: https://github.com/vanhoa690/ecmascript-fall25/blob/main/note/lesson3.md
+ */
