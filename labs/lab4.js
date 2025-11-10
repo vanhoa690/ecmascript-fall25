@@ -33,7 +33,7 @@ const tour = {
 // C2
 const { title, id, shortDescription: desc } = tour;
 
-console.log(title, desc);
+// console.log(title, desc);
 
 const apiRes = {
   message: "",
@@ -44,4 +44,69 @@ const apiRes = {
 const { data } = apiRes; // apiRes.data
 const { data: tourList } = apiRes;
 
-console.log(data, tourList);
+// console.log(data, tourList);
+
+// Callback cơ bản
+function fetchData(callback) {
+  setTimeout(() => {
+    const data = { id: 1, name: "hoadv" }; // mo phong goi api sau 1s
+    // data
+    callback(null, data);
+  }, 1000);
+  //   callback("loi khong data", null);
+}
+
+const handleData = (error, data) => {
+  if (error) {
+    console.error("Error:", error);
+  } else {
+    console.log("Data:", data);
+  }
+};
+
+fetchData(handleData);
+// Promiss
+new Promise((resolve, reject) => {
+  // Async operation
+})
+  .then((result) => {
+    /* handle success */
+    //   fulfilled
+  })
+  .catch((error) => {
+    /* handle error */
+    // rejected
+  })
+  .finally(() => {
+    /* always execute */
+    // luon luon chay du thanh cong hay that bai // loading = true
+  });
+
+// Tạo Promise
+function fetchUserData(userId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (userId > 0) {
+        resolve({ id: userId, name: "hoa dv" });
+      } else {
+        reject("Invalid user ID");
+      }
+    }, 1000);
+  });
+}
+
+// Sử dụng Promise
+fetchUserData(1)
+  .then((user) => {
+    console.log("User data:", user);
+    return user.name;
+  })
+  .then((userName) => {
+    console.log("User name:", userName);
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  })
+  .finally(() => {
+    console.log("Operation completed");
+  });
