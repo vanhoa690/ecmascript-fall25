@@ -83,30 +83,63 @@ new Promise((resolve, reject) => {
   });
 
 // Tạo Promise
-function fetchUserData(userId) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (userId > 0) {
-        resolve({ id: userId, name: "hoa dv" });
-      } else {
-        reject("Invalid user ID");
-      }
-    }, 1000);
-  });
-}
+// function fetchUserData(userId) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (userId > 0) {
+//         resolve({ id: userId, name: "hoa dv" });
+//       } else {
+//         reject("Invalid user ID");
+//       }
+//     }, 1000);
+//   });
+// }
 
 // Sử dụng Promise
-fetchUserData(1)
-  .then((user) => {
-    console.log("User data:", user);
-    return user.name;
-  })
-  .then((userName) => {
-    console.log("User name:", userName);
-  })
-  .catch((error) => {
-    console.error("Error:", error);
-  })
-  .finally(() => {
-    console.log("Operation completed");
-  });
+// fetchUserData(1)
+//   .then((user) => {
+//     console.log("User data:", user);
+//     return user.name;
+//   })
+//   .then((userName) => {
+//     console.log("User name:", userName);
+//   })
+//   .catch((error) => {
+//     console.error("Error:", error);
+//   })
+//   .finally(() => {
+//     console.log("Operation completed");
+//   });
+
+const fetchMultipleData = (urls) =>
+  Promise.all(urls.map((url) => fetch(url).then((res) => res.json())));
+
+// fetchMultipleData([
+//   "https://jsonplaceholder.typicode.com/users/1",
+//   "https://jsonplaceholder.typicode.com/users/2",
+// ]).then((users) => console.log(users));
+
+const fetchUserData = async (userId) => {
+  try {
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${userId}`
+    );
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const getUserData = async (userId) => {
+  try {
+    const user = await fetchUserData(userId);
+    console.log("User:", user);
+    return user;
+  } catch (error) {
+    console.error("Failed to fetch user:", error);
+    throw error;
+  }
+};
+
+getUserData(1);
