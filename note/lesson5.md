@@ -137,12 +137,12 @@ npm install eslint-config-prettier eslint-plugin-prettier --save-dev
 
 ```javascript
 // ❌ Code chưa format
-const user = { name: "John", age: 30, email: "john@example.com" };
+const user = { name: 'John', age: 30, email: 'john@example.com' };
 const getUserInfo = ({ name, age, email }) =>
   `Tên: ${name}, Tuổi: ${age}, Email: ${email}`;
 
 // ✅ Code sau khi format với Prettier
-const user = { name: "John", age: 30, email: "john@example.com" };
+const user = { name: 'John', age: 30, email: 'john@example.com' };
 const getUserInfo = ({ name, age, email }) =>
   `Tên: ${name}, Tuổi: ${age}, Email: ${email}`;
 ```
@@ -174,8 +174,8 @@ var currentUsers = 0;
 const numbers = [1, 2, 3, 4, 5];
 
 // Good
-const doubled = numbers.map((n) => n * 2);
-const even = numbers.filter((n) => n % 2 === 0);
+const doubled = numbers.map(n => n * 2);
+const even = numbers.filter(n => n % 2 === 0);
 
 // ❌ Tránh
 const doubled = numbers.map(function (n) {
@@ -188,9 +188,9 @@ const doubled = numbers.map(function (n) {
 ```javascript
 // ✅ Sử dụng template literals
 const user = {
-  name: "Alice",
+  name: 'Alice',
   age: 25,
-  city: "Hanoi",
+  city: 'Hanoi',
 };
 
 const message = `Xin chào ${user.name}!
@@ -198,14 +198,14 @@ Bạn ${user.age} tuổi và sống ở ${user.city}.`;
 
 // ❌ Tránh nối chuỗi thủ công
 const message =
-  "Xin chào " +
+  'Xin chào ' +
   user.name +
-  "!\n" +
-  "Bạn " +
+  '!\n' +
+  'Bạn ' +
   user.age +
-  " tuổi và sống ở " +
+  ' tuổi và sống ở ' +
   user.city +
-  ".";
+  '.';
 ```
 
 ### 3.4 Destructuring
@@ -213,7 +213,7 @@ const message =
 ```javascript
 // ✅ Destructuring objects và arrays
 const config = {
-  apiUrl: "https://api.example.com",
+  apiUrl: 'https://api.example.com',
   timeout: 5000,
   retries: 3,
 };
@@ -226,11 +226,11 @@ function fetchData({ apiUrl, timeout }) {
 }
 
 // ✅ Destructuring trong function parameters
-const printUserInfo = ({ name, age, email = "No email" }) => {
+const printUserInfo = ({ name, age, email = 'No email' }) => {
   console.log(`Name: ${name}, Age: ${age}, Email: ${email}`);
 };
 
-const user = { name: "Bob", age: 30 };
+const user = { name: 'Bob', age: 30 };
 printUserInfo(user);
 ```
 
@@ -276,7 +276,7 @@ export default class Calculator {
 }
 
 // ✅ Import
-import Calculator, { PI, add, multiply } from "./math.js";
+import Calculator, { PI, add, multiply } from './math.js';
 
 const calc = new Calculator();
 console.log(add(5, 3)); // 8
@@ -291,12 +291,12 @@ class ApiService {
     try {
       const response = await fetch(`/api/users/${userId}`);
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error('Network response was not ok');
       }
       const user = await response.json();
       return user;
     } catch (error) {
-      console.error("Failed to fetch user:", error);
+      console.error('Failed to fetch user:', error);
       throw error;
     }
   }
@@ -304,11 +304,11 @@ class ApiService {
   // ✅ Sử dụng Promise.all cho multiple requests
   async fetchMultipleUsers(userIds) {
     try {
-      const promises = userIds.map((id) => this.fetchUser(id));
+      const promises = userIds.map(id => this.fetchUser(id));
       const users = await Promise.all(promises);
       return users;
     } catch (error) {
-      console.error("Failed to fetch multiple users:", error);
+      console.error('Failed to fetch multiple users:', error);
       return [];
     }
   }
@@ -350,7 +350,7 @@ class Dog extends Animal {
 
   set age(value) {
     if (value < 0) {
-      throw new Error("Age cannot be negative");
+      throw new Error('Age cannot be negative');
     }
     this._age = value;
   }
@@ -395,7 +395,7 @@ npx husky add .husky/pre-commit "npm run lint && npm run format"
 
 ```javascript
 // ✅ ES6 code với best practices
-import { API_BASE_URL, MAX_RETRIES } from "./config.js";
+import { API_BASE_URL, MAX_RETRIES } from './config.js';
 
 class UserService {
   constructor() {
@@ -403,7 +403,7 @@ class UserService {
   }
 
   async fetchUsers(filters = {}) {
-    const { limit = 10, offset = 0, search = "" } = filters;
+    const { limit = 10, offset = 0, search = '' } = filters;
 
     try {
       const response = await fetch(
@@ -441,7 +441,7 @@ class UserService {
       `;
         return userCard;
       })
-      .join("");
+      .join('');
   }
 }
 

@@ -1,3 +1,15 @@
+var calculateTotal = function (prices, taxRate) {
+  var subtotal = 0;
+  for (var i = 0; i < prices.length; i++) {
+    subtotal += prices[i];
+  }
+  return subtotal * (1 + taxRate);
+};
+
+const user = { name: "John", age: 30, email: "john@example.com" };
+const getUserInfo = ({ name, age, email }) =>
+  `Tên: ${name}, Tuổi: ${age}, Email: ${email}`;
+
 // const obj1 = {
 //   name: "Object 1",
 //   tasks: ["task1", "task2", "task3"],
@@ -16,7 +28,7 @@ const obj1 = {
     this.tasks.forEach(
       function (task) {
         console.log(this.name + ": " + task);
-      }.bind(this)
+      }.bind(this),
     ); // Bind this từ showTasks vào callback
   },
 };
