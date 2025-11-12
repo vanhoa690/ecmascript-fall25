@@ -1,8 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
 function App() {
   const greeting = 'Chào mừng đến với React!'
   const name = 'Nguyễn Văn A'
@@ -13,9 +8,9 @@ function App() {
 
   return (
     <div className="container">
-      <h1>{greeting}</h1>
+      <h1 className="text-3xl font-bold text-red-400">{greeting}</h1>
       <p>Đây là component đầu tiên của bạn</p>
-      <h1>Xin chào {name}</h1>
+      <h1 className="my-2">Xin chào {name}</h1>
       <p>Tuổi: {age + 1}</p>
       <p>Là học viên: {true ? 'Có' : 'Không'}</p>
       <h2>Thông tin sinh viên</h2>
@@ -25,7 +20,7 @@ function App() {
       <p>
         <strong>Mã SV:</strong> {studentId}
       </p>
-      <p>
+      <p className="text-blue-500 font-semibold">
         <strong>Ngành học:</strong> {major}
       </p>
     </div>
