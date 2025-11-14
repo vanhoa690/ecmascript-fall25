@@ -1,3 +1,4 @@
+import Footer from './components/Footer';
 import Header from './components/Header';
 
 function App() {
@@ -60,6 +61,7 @@ function App() {
           <h3 className="font-semibold">{tours[2].title}</h3>
         </div> */}
       </div>
+      <Footer />
     </div>
   );
 }
