@@ -30,25 +30,26 @@ function App() {
     },
   ];
   return (
-    <div className="">
+    <div className="min-h-screen flex flex-col justify-between">
       <Header />
-      <h1 className="text-3xl font-bold text-blue-600 text-center my-4">
-        Khám phá sản phẩm ECMA-WD20306
-      </h1>
-      <p className="text-md font-medium text-center">
-        Hãy tận hưởng trải nghiệm du lịch chuyên nghiệp, mang lại cho bạn những
-        khoảnh khắc tuyệt vời và nâng tầm cuộc sống. Chúng tôi cam kết mang đến
-        những chuyến đi đáng nhớ, giúp bạn khám phá thế giới theo cách hoàn hảo
-        nhất.
-      </p>
-      <div className="flex gap-2 my-4">
-        {tours.map(tour => (
-          <div key={tour.id}>
-            <img src={tour.image} alt={tour.title} width={500} />
-            <h3 className="font-semibold">{tour.title}</h3>
-          </div>
-        ))}
-        {/* <div>
+      <main>
+        <h1 className="text-3xl font-bold text-blue-600 text-center my-4">
+          Khám phá sản phẩm ECMA-WD20306
+        </h1>
+        <p className="text-md font-medium text-center">
+          Hãy tận hưởng trải nghiệm du lịch chuyên nghiệp, mang lại cho bạn
+          những khoảnh khắc tuyệt vời và nâng tầm cuộc sống. Chúng tôi cam kết
+          mang đến những chuyến đi đáng nhớ, giúp bạn khám phá thế giới theo
+          cách hoàn hảo nhất.
+        </p>
+        <div className="flex gap-2 my-4">
+          {tours.map(tour => (
+            <div key={tour.id}>
+              <img src={tour.image} alt={tour.title} width={500} />
+              <h3 className="font-semibold">{tour.title}</h3>
+            </div>
+          ))}
+          {/* <div>
           <img src={tours[0].image} alt={tours[0].title} width={500} />
           <h3 className="font-semibold">{tours[0].title}</h3>
         </div>
@@ -60,7 +61,9 @@ function App() {
           <img src={tours[2].image} alt={tours[2].title} width={500} />
           <h3 className="font-semibold">{tours[2].title}</h3>
         </div> */}
-      </div>
+        </div>
+      </main>
+
       <Footer />
     </div>
   );
