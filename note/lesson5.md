@@ -9,29 +9,6 @@ npm install eslint --save-dev
 npx eslint --init
 ```
 
-### File cấu hình ESLint (.eslintrc.json)
-
-```json
-{
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
-  "extends": ["eslint:recommended"],
-  "parserOptions": {
-    "ecmaVersion": 12,
-    "sourceType": "module"
-  },
-  "rules": {
-    "no-unused-vars": "error",
-    "no-console": "warn",
-    "prefer-const": "error",
-    "no-var": "error"
-  }
-}
-```
-
 ### Cấu hình Nâng cao cho ES6+
 
 ```json
@@ -72,6 +49,15 @@ npx eslint --init
     // Promises
     "prefer-promise-reject-errors": "error"
   }
+}
+```
+
+### Cập nhật lệnh trong package.json
+
+```json
+"scripts": {
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix"
 }
 ```
 
