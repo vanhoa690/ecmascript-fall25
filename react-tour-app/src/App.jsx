@@ -1,3 +1,5 @@
+import Header from './components/Header';
+
 function App() {
   // mock data
   const tours = [
@@ -9,7 +11,6 @@ function App() {
     },
     {
       id: 2,
-      // JSX: HTML + JS nam trong return boc trong 1 the bat ky <></>
       title: 'Du lịch thăm thân tại Úc - Mỹ - Canada',
       image:
         'https://s3-cmc.travel.com.vn/vtv-image/Images/Advertisings/bn_250528_statue-liberty-large-american-flag-new-york-skyline-background-162323735.webp',
@@ -20,9 +21,16 @@ function App() {
       image:
         'https://s3-cmc.travel.com.vn/vtv-image/Images/Advertisings/bn_240925_KPSP1-tour-noi-dia-kich-cau.jpg',
     },
+    {
+      id: 4,
+      title: 'Tự hào nét Việt 4',
+      image:
+        'https://s3-cmc.travel.com.vn/vtv-image/Images/Advertisings/bn_240925_KPSP1-tour-noi-dia-kich-cau.jpg',
+    },
   ];
   return (
     <div className="">
+      <Header />
       <h1 className="text-3xl font-bold text-blue-600 text-center my-4">
         Khám phá sản phẩm ECMA-WD20306
       </h1>
@@ -33,14 +41,12 @@ function App() {
         nhất.
       </p>
       <div className="flex gap-2 my-4">
-        {tours.map(tour => {
-          return (
-            <div>
-              <img src={tour.image} alt={tour.title} width={500} />
-              <h3 className="font-semibold">{tour.title}</h3>
-            </div>
-          );
-        })}
+        {tours.map(tour => (
+          <div key={tour.id}>
+            <img src={tour.image} alt={tour.title} width={500} />
+            <h3 className="font-semibold">{tour.title}</h3>
+          </div>
+        ))}
         {/* <div>
           <img src={tours[0].image} alt={tours[0].title} width={500} />
           <h3 className="font-semibold">{tours[0].title}</h3>
