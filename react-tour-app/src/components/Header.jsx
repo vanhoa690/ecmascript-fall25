@@ -1,7 +1,7 @@
 function Header() {
   return (
-    <nav>
-      <ul>
+    <nav className="my-2">
+      <ul className="flex justify-around text-xl font-bold">
         <li>
           <a href="/">Home</a>
         </li>
