@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="container">
-      <h1>{greeting}</h1>
+      <h1 className="text-blue-600 text-4xl">{greeting}</h1>
       <p>Đây là component đầu tiên của bạn</p>
     </div>
   );
