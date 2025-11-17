@@ -8,7 +8,6 @@ export default function TourCard(props) {
       <div className="flex justify-around">
         <Button label="Xem chi tiet" />
         <Button label="Dat tour" />
-        <Button />
       </div>
     </div>
   )
