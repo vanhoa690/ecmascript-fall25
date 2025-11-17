@@ -1,0 +1,25 @@
+{
+  "tours": [
+    {
+      "id": 1,
+      "name": "Đảo Phú Quốc",
+      "price": "4.500.000 VND",
+      "duration": "3 ngày 2 đêm",
+      "image": "https://images.unsplash.com/photo-1583422409516-2895a77efded?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "id": 2,
+      "name": "Hạ Long Bay",
+      "price": "3.200.000 VND",
+      "duration": "2 ngày 1 đêm",
+      "image": "https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "id": 3,
+      "name": "Phố Cổ Hội An",
+      "price": "2.800.000 VND",
+      "duration": "2 ngày 1 đêm",
+      "image": "https://images.unsplash.com/photo-1528127269322-539801943592?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    }
+  ]
+}
