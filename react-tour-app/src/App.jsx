@@ -1,5 +1,6 @@
 import Footer from './components/Footer'
 import Header from './components/Header'
+import TourCard from './components/TourCard'
 
 function App() {
   // mock data
@@ -43,12 +44,7 @@ function App() {
         </p>
         <div className="flex gap-2">
           {tours.map(tour => (
-            <div key={tour.id}>
-              <img src={tour.image} width={500} alt="" height={300} />
-              <h2 className="text-3xl font-bold text-orange-300">
-                {tour.title}
-              </h2>
-            </div>
+            <TourCard key={tour.id} title={tour.title} image={tour.image} />
           ))}
         </div>
       </main>
