@@ -1,8 +1,8 @@
-import Footer from './components/Footer';
-import Header from './components/Header';
-import TourCard from './components/TourCard';
+import Footer from '../components/Footer';
+import Header from '../components/Header';
+import TourCard from '../components/TourCard';
 
-function Homepage() {
+function Home() {
   // mock data
   const tours = [
     {
@@ -55,4 +55,4 @@ function Homepage() {
   );
 }
 
-export default Homepage;
+export default Home;
