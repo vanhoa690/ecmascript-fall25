@@ -20,7 +20,10 @@ function App() {
       <button onClick={handleClick} className="bg-amber-300 px-4">
         {isOn ? 'Bat' : 'Tat'}
       </button>
-      <button onClick={() => handleClick(!isOn)} className="bg-amber-300 px-4">
+      <button
+        onClick={() => handleClickArgs(!isOn)}
+        className="bg-amber-300 px-4"
+      >
         {isOn ? 'Bat' : 'Tat'}
       </button>
     </div>
