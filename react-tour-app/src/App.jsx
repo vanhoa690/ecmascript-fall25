@@ -4,14 +4,23 @@ function App() {
   const [isOn, setIsOn] = useState(true);
   const [tours, setTours] = useState([]);
 
+  // funct no args
   const handleClick = () => {
     const newIsOn = !isOn;
-    console.log(newIsOn);
     setIsOn(newIsOn);
   };
+
+  // funct co args
+  const handleClickArgs = isClicked => {
+    setIsOn(isClicked);
+  };
+
   return (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center h-screen flex-col gap-2">
       <button onClick={handleClick} className="bg-amber-300 px-4">
+        {isOn ? 'Bat' : 'Tat'}
+      </button>
+      <button onClick={() => handleClick(!isOn)} className="bg-amber-300 px-4">
         {isOn ? 'Bat' : 'Tat'}
       </button>
     </div>
