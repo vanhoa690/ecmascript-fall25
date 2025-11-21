@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import axios from 'axios'
+
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Heading from '../components/Heading'
@@ -31,6 +33,11 @@ function Home() {
     ])
   }
 
+  const getTours = async () => {
+    const { data } = await axios.get('http://localhost:3001/tours')
+    setTours(data)
+  }
+  getTours()
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Header />
@@ -50,7 +57,7 @@ function Home() {
         </p>
         <div className="flex gap-2">
           {tours.map(tour => (
-            <TourCard key={tour.id} title={tour.title} image={tour.image} />
+            <TourCard key={tour.id} title={tour.name} image={tour.image} />
           ))}
         </div>
         <Heading title="Tour Quoc Te" />
