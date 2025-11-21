@@ -3,6 +3,7 @@ import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Heading from '../components/Heading'
 import TourCard from '../components/TourCard'
+import Button from '../components/Button'
 
 function Home() {
   // mock data
@@ -36,6 +37,7 @@ function Home() {
       <button onClick={loadData} className="bg-amber-300">
         Load Data
       </button>
+      <Button label="Load Data Button" onClick={loadData} />
       <main>
         {/* <h1 className="text-3xl text-blue-600 text-center font-bold border-b-2 border-b-orange-400 uppercase">
           Tour Nội Địa
