@@ -7,6 +7,8 @@ import Button from '../components/Button';
 function Home() {
   // mock data
   const [tours, setTours] = useState([]);
+
+  // call api cap nhat state []
   const handleLoadData = () => {
     setTours([
       {
