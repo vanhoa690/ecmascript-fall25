@@ -1,8 +1,10 @@
 # Môn học: Lập trình ECMAScript ( ECMA Script Programming)
 
-#### Link Syllabus: https://flm.poly.edu.vn/gui/role/teacher/SyllabusDetails?sylID=1579
+#### Link khóa học React: https://letrongdat.vercel.app/react/
 
-#### Link tài liệu: https://drive.google.com/drive/folders/1UuHWicp9YtJui_tj6SBl0U7jZ8pa74DG
+#### Link khóa học ECMA ES6: https://github.com/vanhoa690/ecmascript-fall25/tree/main/note
+
+#### Link ECMA WEB501 Base: https://github.com/vanhoa690/WEB501-ECMA-Base
 
 #### Link Ôn tập Javascript: https://github.com/chinhpd5/WEB2064/blob/main/note/lesson01.md
 
