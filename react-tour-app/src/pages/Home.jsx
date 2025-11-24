@@ -8,13 +8,11 @@ function Home() {
   // mock data
   const [tours, setTours] = useState([]);
 
-
   useEffect(() => {
     console.log("Chạy 1 lần khi mount");
     const getTours = async () => {
     try {
-      const res = await axios.get("http://localhost:3001/tours")
-      console.log(res);
+      const { data } = await axios.get("http://localhost:3001/tours")
       setTours(res.data)
     } catch (error) {
       console.log(error);
@@ -23,7 +21,6 @@ function Home() {
     getTours()
 }, []); // chay 1 lan duy nhat khi truyen []
  
-  // click button => show danh sach tours
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Header />
