@@ -1,8 +1,10 @@
 # Môn học: Lập trình ECMAScript ( ECMA Script Programming)
 
-#### Link Syllabus: https://flm.poly.edu.vn/gui/role/teacher/SyllabusDetails?sylID=1579
+#### Link khóa học React: https://letrongdat.vercel.app/react/
 
-#### Link tài liệu: https://drive.google.com/drive/folders/1UuHWicp9YtJui_tj6SBl0U7jZ8pa74DG
+#### Link khóa học ECMA ES6: https://github.com/vanhoa690/ecmascript-fall25/tree/main/note
+
+#### Link ECMA WEB501 Base: https://github.com/vanhoa690/WEB501-ECMA-Base
 
 #### Link Ôn tập Javascript: https://github.com/chinhpd5/WEB2064/blob/main/note/lesson01.md
 
@@ -36,29 +38,24 @@ Sau khi hoàn thành xong khóa học này, sinh viên sẽ có khả năng:
 ## Nội dung chính
 
 1. **Giới thiệu về ECMAScript**
-
    - Lịch sử và các phiên bản
    - Sự khác biệt giữa JavaScript và ECMAScript
 
 2. **Các khái niệm cơ bản ES6+**
-
    - Biến và scope (let, const)
    - Template literals
    - Enhanced object literals
 
 3. **Functions nâng cao**
-
    - Arrow functions
    - Default parameters
    - Rest và Spread operators
 
 4. **Destructuring**
-
    - Array destructuring
    - Object destructuring
 
 5. **Lập trình bất đồng bộ**
-
    - Promises
    - Async/Await
    - Callbacks
@@ -79,9 +76,24 @@ Sau khi hoàn thành khóa học, học viên sẽ có đủ kiến thức và k
 
 ---
 
-_Tài liệu này được tạo ra để phục vụ mục đích học tập và nghiên cứu_
+# Link khóa học React: https://letrongdat.vercel.app/react/
 
-# Hướng Dẫn Sử Dụng Git cơ bản
+## Kết quả học tập
+
+Sau khóa học, bạn sẽ có thể:
+
+- ✅ Hiểu rõ tư duy React và cách xây dựng ứng dụng component-based
+- ✅ Sử dụng thành thạo Hooks (useState, useEffect, useRef, custom hooks)
+- ✅ Quản lý State và Props hiệu quả
+- ✅ Xử lý Form và Controlled Components
+- ✅ Thực hiện Routing và Layout
+- ✅ Kết nối API với Axios
+- ✅ Xây dựng ứng dụng CRUD hoàn chỉnh
+- ✅ Tổ chức code và tái sử dụng Component
+
+---
+
+## Hướng Dẫn Sử Dụng Git cơ bản
 
 ## 1. Cài đặt Git
 
