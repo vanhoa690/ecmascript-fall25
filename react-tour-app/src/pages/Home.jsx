@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
@@ -9,11 +9,20 @@ function Home() {
   // mock data
   const [tours, setTours] = useState([])
 
-  const getTours = async () => {
-    const { data } = await axios.get('http://localhost:3001/tours')
-    setTours(data)
-  }
-  getTours()
+
+  useEffect(() => {
+    console.log("Chạy 1 lần khi mount");
+    const getTours = async () => {
+    try {
+      const { data } = await axios.get('http://localhost:3001/tours')
+      setTours(data)
+    } catch (error) {
+    }
+    }
+    getTours()
+  }, []);
+  
+
   return (
     <div className="min-h-screen flex flex-col justify-between">
       <Header />
