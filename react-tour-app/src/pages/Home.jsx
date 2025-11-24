@@ -9,19 +9,18 @@ function Home() {
   // mock data
   const [tours, setTours] = useState([])
 
-
   useEffect(() => {
-    console.log("Chạy 1 lần khi mount");
+    console.log('Chạy 1 lần khi mount')
     const getTours = async () => {
-    try {
-      const { data } = await axios.get('http://localhost:3001/tours')
-      setTours(data)
-    } catch (error) {
-    }
+      try {
+        const { data } = await axios.get('http://localhost:3001/tours')
+        setTours(data)
+      } catch (error) {
+        console.log(error)
+      }
     }
     getTours()
-  }, []);
-  
+  }, [])
 
   return (
     <div className="min-h-screen flex flex-col justify-between">
