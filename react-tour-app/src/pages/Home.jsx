@@ -32,9 +32,16 @@ function Home() {
           sẵn sàng tạo ra những trải nghiệm độc đáo và không quên cho du khách,
           giúp mang đến những chuyến hành trình tuyệt vời.
         </p>
-        <div className="flex gap-2">
+        <div className="flex gap-2 items-center justify-center my-4">
           {tours.map(tour => (
-            <TourCard key={tour.id} title={tour.name} image={tour.image} />
+            <TourCard
+              key={tour.id}
+              id={tour.id}
+              name={tour.name}
+              image={tour.image}
+              destination={tour.destination}
+              price={tour.price}
+            />
           ))}
         </div>
         <Heading title="Tour Quoc Te" />
