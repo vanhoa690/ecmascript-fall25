@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { toast } from 'react-hot-toast'
 
 const Home = () => {
   // Sample data for movies and combos
@@ -41,22 +42,13 @@ const Home = () => {
   }
 
   const handlePayment = () => {
-    if (!paymentInfo.customerName || !paymentInfo.email || !paymentInfo.phone) {
-      alert('Vui lòng điền đầy đủ thông tin khách hàng')
-      return
-    }
-
     setIsProcessing(true)
+    toast.success('OK ')
+    setTimeout(() => {
+      setIsProcessing(false)
 
-    // Simulate API call to initiate VNPay payment
-    // setTimeout(() => {
-    //   // In a real application, this would redirect to VNPay gateway
-    //   alert('Đang chuyển hướng đến cổng thanh toán VNPay...')
-    //   setIsProcessing(false)
-
-    //   // Here you would typically redirect to VNPay payment URL
-    //   // window.location.href = vnpayPaymentUrl;
-    // }, 2000)
+      // window.location.href = vnpayPaymentUrl;
+    }, 2000)
   }
 
   return (
@@ -163,7 +155,7 @@ const Home = () => {
                 <input
                   type="text"
                   name="customerName"
-                  value={paymentInfo.customerName}
+                  value={paymentInfo.customerName || 'hoadv'}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Nhập họ và tên"
@@ -177,7 +169,7 @@ const Home = () => {
                 <input
                   type="email"
                   name="email"
-                  value={paymentInfo.email}
+                  value={paymentInfo.email || 'hoadv@gmail.com'}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Nhập email"
@@ -191,7 +183,7 @@ const Home = () => {
                 <input
                   type="tel"
                   name="phone"
-                  value={paymentInfo.phone}
+                  value={paymentInfo.phone || '0987654321'}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Nhập số điện thoại"
@@ -229,6 +221,25 @@ const Home = () => {
                 <p className="text-sm text-gray-500 mt-1">
                   Thanh toán an toàn và bảo mật với VNPay
                 </p>
+              </div>
+            </div>
+            <div className="bg-gray-50 rounded-lg p-4">
+              <div className="flex items-center">
+                <input
+                  type="radio"
+                  id="zalopay"
+                  name="paymentMethod"
+                  value="zalopay"
+                  checked={paymentInfo.paymentMethod === 'zalopay'}
+                  onChange={handleInputChange}
+                  className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
+                />
+                <label
+                  htmlFor="zalopay"
+                  className="ml-3 block text-sm font-medium text-gray-700"
+                >
+                  Thanh toán qua ZaloPay
+                </label>
               </div>
             </div>
           </div>
