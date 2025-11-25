@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-const Home = () => {
+const VNPayPaymentPage = () => {
   // Sample data for movies and combos
   const [movies] = useState([
     { id: 1, title: 'Avengers: Endgame', price: 85000, quantity: 2 },
@@ -49,14 +49,14 @@ const Home = () => {
     setIsProcessing(true)
 
     // Simulate API call to initiate VNPay payment
-    // setTimeout(() => {
-    //   // In a real application, this would redirect to VNPay gateway
-    //   alert('Đang chuyển hướng đến cổng thanh toán VNPay...')
-    //   setIsProcessing(false)
+    setTimeout(() => {
+      // In a real application, this would redirect to VNPay gateway
+      alert('Đang chuyển hướng đến cổng thanh toán VNPay...')
+      setIsProcessing(false)
 
-    //   // Here you would typically redirect to VNPay payment URL
-    //   // window.location.href = vnpayPaymentUrl;
-    // }, 2000)
+      // Here you would typically redirect to VNPay payment URL
+      // window.location.href = vnpayPaymentUrl;
+    }, 2000)
   }
 
   return (
@@ -275,4 +275,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default VNPayPaymentPage
