@@ -17,6 +17,18 @@ function ListPage() {
     getTours()
   }, [])
 
+  const handleDelete = async id => {
+    try {
+      if (confirm('Tao muon xoa tour nay')) {
+        await axios.delete('http://localhost:3000/tours/' + id)
+        setTours(tours.filter(tour => tour.id !== id))
+        toast.success('Ok tao da xoa duoc roi')
+      }
+    } catch (error) {
+      toast.error(error)
+    }
+  }
+
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách</h1>
@@ -45,7 +57,9 @@ function ListPage() {
                   {tour.name}
                 </td>
                 <td className="px-4 py-2 border border-gray-300">....</td>
-                <td className="px-4 py-2 border border-gray-300">@mdo</td>
+                <td className="px-4 py-2 border border-gray-300">
+                  <button onClick={() => handleDelete(tour.id)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
