@@ -1,4 +1,4 @@
-function Add() {
+function AddPage() {
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
@@ -99,4 +99,4 @@ function Add() {
   );
 }
 
-export default Add;
+export default AddPage;

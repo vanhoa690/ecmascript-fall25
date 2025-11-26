@@ -1,9 +1,9 @@
-import { Toaster } from "react-hot-toast";
-import { Route, Routes, Link } from "react-router-dom";
-import ListPage from "./pages/List";
+import { Toaster } from 'react-hot-toast';
+import { Route, Routes, Link } from 'react-router-dom';
+import ListPage from './pages/List';
+import AddPage from './pages/Add';
 
 function App() {
-
   return (
     <>
       {/* HEADER - Navbar Tailwind */}
@@ -21,9 +21,9 @@ function App() {
             <Link to="/list" className="hover:text-gray-200">
               Danh sách
             </Link>
-            <a href="/add" className="hover:text-gray-200">
+            <Link to="/add" className="hover:text-gray-200">
               Thêm mới
-            </a>
+            </Link>
           </div>
 
           {/* Right menu desktop */}
@@ -43,8 +43,9 @@ function App() {
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB501</h1>
         <p className="text-lg text-gray-600">Ứng dụng quản lý dữ liệu</p>
         <Routes>
-           <Route path="/list" element={<ListPage />} />
-         </Routes>
+          <Route path="/list" element={<ListPage />} />
+          <Route path="/add" element={<AddPage />} />
+        </Routes>
       </div>
       <Toaster />
     </>
