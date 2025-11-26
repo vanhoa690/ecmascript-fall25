@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function ListPage() {
   const [tours, setTours] = useState([]);
   useEffect(() => {
     const getTours = async () => {
       try {
-        const { data } = await axios.get(' http://localhost:3000/tours');
+        const { data } = await axios.get('http://localhost:3000/tours');
         setTours(data);
       } catch (error) {
         toast.error(error);
@@ -14,6 +15,17 @@ function ListPage() {
     };
     getTours();
   }, []);
+
+  const handleDelete = async id => {
+    if (confirm('Delete')) {
+      try {
+        await axios.delete('http://localhost:3000/tours/' + id);
+        setTours(tours.filter(tour => tour.id !== id));
+      } catch (error) {
+        toast.error(error);
+      }
+    }
+  };
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Danh sách</h1>
@@ -42,7 +54,7 @@ function ListPage() {
                 <td className="px-4 py-2 border border-gray-300">Mark</td>
                 <td className="px-4 py-2 border border-gray-300">Otto</td>
                 <td className="px-4 py-2 border border-gray-300">
-                  <button>Delete</button>
+                  <button onClick={() => handleDelete(tour.id)}>Delete</button>
                 </td>
               </tr>
             ))}
