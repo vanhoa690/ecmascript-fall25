@@ -1,55 +1,89 @@
-import { useState } from 'react'
-import { toast } from 'react-hot-toast'
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+import axios from "axios";
 
 const Home = () => {
   // Sample data for movies and combos
   const [movies] = useState([
-    { id: 1, title: 'Avengers: Endgame', price: 85000, quantity: 2 },
-    { id: 2, title: 'Spider-Man: No Way Home', price: 90000, quantity: 1 },
-  ])
+    { id: 1, title: "Avengers: Endgame", price: 85000, quantity: 2 },
+    { id: 2, title: "Spider-Man: No Way Home", price: 90000, quantity: 1 },
+  ]);
 
   const [combos] = useState([
-    { id: 1, name: 'Combo A: Bắp + Coca', price: 65000, quantity: 1 },
-    { id: 2, name: 'Combo B: 2 Bắp + 2 Coca', price: 120000, quantity: 1 },
-  ])
+    { id: 1, name: "Combo A: Bắp + Coca", price: 65000, quantity: 1 },
+    { id: 2, name: "Combo B: 2 Bắp + 2 Coca", price: 120000, quantity: 1 },
+  ]);
 
   const [paymentInfo, setPaymentInfo] = useState({
-    customerName: '',
-    email: '',
-    phone: '',
-    paymentMethod: 'vnpay',
-  })
+    customerName: "",
+    email: "",
+    phone: "",
+    paymentMethod: "vnpay",
+  });
 
-  const [isProcessing, setIsProcessing] = useState(false)
+  const [isProcessing, setIsProcessing] = useState(false);
 
   // Calculate totals
   const movieTotal = movies.reduce(
     (sum, movie) => sum + movie.price * movie.quantity,
     0
-  )
+  );
   const comboTotal = combos.reduce(
     (sum, combo) => sum + combo.price * combo.quantity,
     0
-  )
-  const totalAmount = movieTotal + comboTotal
+  );
+  const totalAmount = movieTotal + comboTotal;
 
-  const handleInputChange = e => {
-    const { name, value } = e.target
-    setPaymentInfo(prev => ({
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setPaymentInfo((prev) => ({
       ...prev,
       [name]: value,
-    }))
-  }
+    }));
+  };
+  const handlePayment = async () => {
+    // if (!paymentInfo.customerName || !paymentInfo.email || !paymentInfo.phone) {
+    //   alert("Vui lòng điền đầy đủ thông tin khách hàng");
+    //   return;
+    // }
 
-  const handlePayment = () => {
-    setIsProcessing(true)
-    toast.success('OK ')
-    setTimeout(() => {
-      setIsProcessing(false)
+    setIsProcessing(true);
+    try {
+      const { data } = await axios.post(
+        "http://localhost:3000/api/payment/make-payment",
+        {
+          data: [
+            {
+              productId: {
+                _id: "6926733c2e7c5320695ce774",
+                name: "ABC",
+                image:
+                  "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_t.png",
+                price: 10000,
+              },
+              quantity: 2,
+              _id: "6927c2bf28c79a991173c644",
+            },
+          ],
+          amount: 200000,
+        }
+      );
+      console.log(data);
+      window.location.href = data;
+    } catch (error) {
+    } finally {
+      setIsProcessing(false);
+    }
+    // Simulate API call to initiate VNPay payment
+    // setTimeout(() => {
+    //   // In a real application, this would redirect to VNPay gateway
+    //   alert('Đang chuyển hướng đến cổng thanh toán VNPay...')
+    //   setIsProcessing(false)
 
-      // window.location.href = vnpayPaymentUrl;
-    }, 2000)
-  }
+    //   // Here you would typically redirect to VNPay payment URL
+    //   // window.location.href = vnpayPaymentUrl;
+    // }, 2000)
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4">
@@ -73,7 +107,7 @@ const Home = () => {
                 Vé Xem Phim
               </h3>
               <div className="bg-gray-50 rounded-lg p-4">
-                {movies.map(movie => (
+                {movies.map((movie) => (
                   <div
                     key={movie.id}
                     className="flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0"
@@ -85,14 +119,14 @@ const Home = () => {
                       </p>
                     </div>
                     <p className="font-medium">
-                      {movie.price.toLocaleString('vi-VN')} VND
+                      {movie.price.toLocaleString("vi-VN")} VND
                     </p>
                   </div>
                 ))}
                 <div className="flex justify-between items-center pt-2 mt-2 border-t border-gray-300">
                   <p className="font-medium">Tổng tiền vé</p>
                   <p className="font-medium">
-                    {movieTotal.toLocaleString('vi-VN')} VND
+                    {movieTotal.toLocaleString("vi-VN")} VND
                   </p>
                 </div>
               </div>
@@ -104,7 +138,7 @@ const Home = () => {
                 Combo Bắp Nước
               </h3>
               <div className="bg-gray-50 rounded-lg p-4">
-                {combos.map(combo => (
+                {combos.map((combo) => (
                   <div
                     key={combo.id}
                     className="flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0"
@@ -116,14 +150,14 @@ const Home = () => {
                       </p>
                     </div>
                     <p className="font-medium">
-                      {combo.price.toLocaleString('vi-VN')} VND
+                      {combo.price.toLocaleString("vi-VN")} VND
                     </p>
                   </div>
                 ))}
                 <div className="flex justify-between items-center pt-2 mt-2 border-t border-gray-300">
                   <p className="font-medium">Tổng tiền combo</p>
                   <p className="font-medium">
-                    {comboTotal.toLocaleString('vi-VN')} VND
+                    {comboTotal.toLocaleString("vi-VN")} VND
                   </p>
                 </div>
               </div>
@@ -136,7 +170,7 @@ const Home = () => {
                   Tổng Thanh Toán
                 </p>
                 <p className="text-xl font-bold text-blue-600">
-                  {totalAmount.toLocaleString('vi-VN')} VND
+                  {totalAmount.toLocaleString("vi-VN")} VND
                 </p>
               </div>
             </div>
@@ -155,7 +189,7 @@ const Home = () => {
                 <input
                   type="text"
                   name="customerName"
-                  value={paymentInfo.customerName || 'hoadv'}
+                  value={paymentInfo.customerName || "hoadv"}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Nhập họ và tên"
@@ -169,7 +203,7 @@ const Home = () => {
                 <input
                   type="email"
                   name="email"
-                  value={paymentInfo.email || 'hoadv@gmail.com'}
+                  value={paymentInfo.email || "hoadv@gmail.com"}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Nhập email"
@@ -183,7 +217,7 @@ const Home = () => {
                 <input
                   type="tel"
                   name="phone"
-                  value={paymentInfo.phone || '0987654321'}
+                  value={paymentInfo.phone || "0987654321"}
                   onChange={handleInputChange}
                   className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Nhập số điện thoại"
@@ -205,7 +239,7 @@ const Home = () => {
                   id="vnpay"
                   name="paymentMethod"
                   value="vnpay"
-                  checked={paymentInfo.paymentMethod === 'vnpay'}
+                  checked={paymentInfo.paymentMethod === "vnpay"}
                   onChange={handleInputChange}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                 />
@@ -230,7 +264,7 @@ const Home = () => {
                   id="zalopay"
                   name="paymentMethod"
                   value="zalopay"
-                  checked={paymentInfo.paymentMethod === 'zalopay'}
+                  checked={paymentInfo.paymentMethod === "zalopay"}
                   onChange={handleInputChange}
                   className="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300"
                 />
@@ -249,7 +283,7 @@ const Home = () => {
             <button
               onClick={handlePayment}
               disabled={isProcessing}
-              className={`px-6 py-3 rounded-md font-medium text-white ${isProcessing ? 'bg-blue-400' : 'bg-blue-600 hover:bg-blue-700'} transition-colors duration-200 flex items-center`}
+              className={`px-6 py-3 rounded-md font-medium text-white ${isProcessing ? "bg-blue-400" : "bg-blue-600 hover:bg-blue-700"} transition-colors duration-200 flex items-center`}
             >
               {isProcessing ? (
                 <>
@@ -276,14 +310,14 @@ const Home = () => {
                   Đang xử lý...
                 </>
               ) : (
-                `Thanh Toán ${totalAmount.toLocaleString('vi-VN')} VND`
+                `Thanh Toán ${totalAmount.toLocaleString("vi-VN")} VND`
               )}
             </button>
           </div>
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
