@@ -1,7 +1,11 @@
 import { useState } from 'react'
+import axios from 'axios'
+import toast from 'react-hot-toast'
 
 function Add() {
   const [name, setName] = useState('')
+  const [cagetory, setCatory] = useState('')
+
   const [errors, setErrors] = useState({})
 
   const handleTourNameChange = e => {
@@ -13,7 +17,7 @@ function Add() {
     }
   }
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault()
     const newErrors = validateTourName(name)
     console.log(newErrors)
@@ -22,6 +26,8 @@ function Add() {
     } else {
       setErrors(newErrors)
     }
+    await axios.post('http://localhost:3000/tours', { name, cagetory })
+    toast.success('Add done ')
   }
 
   const validateTourName = name => {
@@ -63,6 +69,8 @@ function Add() {
           </label>
           <select
             id="selectOption"
+            value={cagetory}
+            onChange={e => setCatory(e.target.value)}
             className="w-full border rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
           >
             <option value="1">One</option>

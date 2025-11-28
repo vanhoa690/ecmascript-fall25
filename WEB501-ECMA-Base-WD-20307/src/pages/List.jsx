@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 function List() {
   const [tours, setTours] = useState([])
 
@@ -65,6 +65,11 @@ function List() {
                   >
                     Delete
                   </button>
+                  <Link to={`/edit/${tour.id}`}>
+                    <button className="bg-blue-400 px-2 rounded-2xl text-white font-bold">
+                      Edit
+                    </button>
+                  </Link>
                 </td>
               </tr>
             ))}
