@@ -19,10 +19,11 @@ function ListPage() {
   const handleDelete = async id => {
     if (confirm('Delete')) {
       try {
-        await axios.delete('http://localhost:3000/tours/' + id);
+        await axios.delete('http://localhost:30000/tours/' + id);
         setTours(tours.filter(tour => tour.id !== id));
       } catch (error) {
-        toast.error(error);
+        toast.error(error.message); // error: {} -> message
+        console.log(error);
       }
     }
   };
