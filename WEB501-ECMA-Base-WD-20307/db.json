@@ -19,6 +19,60 @@
       "image": "https://picsum.photos/400/300?random=3",
       "description": "Thành phố ngàn hoa với khí hậu mát mẻ quanh năm",
       "available": 10
+    },
+    {
+      "name": "ha long",
+      "id": 4
+    },
+    {
+      "name": "ha long",
+      "id": 5
+    },
+    {
+      "name": "ha long",
+      "price": 200000,
+      "id": 6
+    },
+    {
+      "name": "ha long",
+      "price": "200000",
+      "id": 7
+    },
+    {
+      "name": "ha long",
+      "price": 200000,
+      "category": "",
+      "id": 8
+    },
+    {
+      "name": "ha long",
+      "price": 2222,
+      "category": "Tour quoc te",
+      "id": 9
+    },
+    {
+      "name": "ha long",
+      "price": 33333,
+      "category": "",
+      "id": 10
+    },
+    {
+      "name": "ha long",
+      "price": 33333,
+      "category": "Tour quoc te",
+      "id": 11
+    },
+    {
+      "name": "ha long",
+      "price": 22222,
+      "category": "Tour noi dia",
+      "id": 12
+    },
+    {
+      "name": "ha long",
+      "price": 22222,
+      "category": "Tour quoc te",
+      "id": 13
     }
   ]
 }
