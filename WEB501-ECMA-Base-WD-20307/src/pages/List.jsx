@@ -11,7 +11,7 @@ function ListPage() {
         const { data } = await axios.get('http://localhost:3000/tours')
         setTours(data)
       } catch (error) {
-        toast.error(error)
+        toast.error(error.message)
       }
     }
     getTours()
@@ -25,7 +25,7 @@ function ListPage() {
         toast.success('Ok tao da xoa duoc roi')
       }
     } catch (error) {
-      toast.error(error)
+      toast.error(error.message) // error {}
     }
   }
 
