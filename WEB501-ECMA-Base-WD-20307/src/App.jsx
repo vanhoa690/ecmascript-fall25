@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom'
 import List from './pages/List'
 import Add from './pages/Add'
 import EditPage from './pages/Edit'
+import RegisterPage from './pages/Register'
 
 function App() {
   return (
@@ -26,10 +27,10 @@ function App() {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="hover:text-gray-200">
+            <a href="/login" className="hover:text-gray-200">
               Đăng nhập
             </a>
-            <a href="#" className="hover:text-gray-200">
+            <a href="/register" className="hover:text-gray-200">
               Đăng ký
             </a>
           </div>
@@ -42,6 +43,7 @@ function App() {
         <p className="text-lg text-gray-600">Ứng dụng quản lý dữ liệu</p>
 
         <Routes>
+          <Route path="/register" element={<RegisterPage />} />
           <Route path="/list" element={<List />} />
           <Route path="/add" element={<Add />} />
           <Route path="/edit/:id" element={<EditPage />} />

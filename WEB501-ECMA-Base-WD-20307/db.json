@@ -35,5 +35,12 @@
       "cagetory": "3",
       "id": 4
     }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$uZSkwqoQGP9J2aNGW8OcZOtFiO3YMCEYC9VHFPKopvjNi.L0Bw1oK",
+      "id": 1
+    }
   ]
 }
