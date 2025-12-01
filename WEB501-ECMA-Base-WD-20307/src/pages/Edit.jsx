@@ -1,29 +1,46 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { toast } from 'react-hot-toast'
 import axios from 'axios'
+import { useParams } from 'react-router-dom'
 
 function EditPage() {
+  const { id } = useParams()
+
   const [name, setName] = useState('')
   const [price, setPrice] = useState('')
-  const [category, setCategory] = useState('Tour noi dia')
+  const [category, setCategory] = useState('')
+
+  useEffect(() => {
+    const getTour = async () => {
+      try {
+        const { data } = await axios.get(`http://localhost:3000/tours/${id}`)
+        setName(data.name)
+        setPrice(data.price)
+        setCategory(data.category)
+      } catch (error) {
+        toast.error('Loi call api')
+      }
+    }
+    getTour()
+  }, [id])
 
   // handleChange
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      await axios.post('http://localhost:3000/tours', {
+      await axios.put(`http://localhost:3000/tours/${id}`, {
         name, // es6
         price: Number(price),
         category: category,
       })
-      toast.success('them thanh cong')
+      toast.success('update thanh cong')
     } catch (error) {
       toast.error(error.message)
     }
   }
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
+      <h1 className="text-2xl font-semibold mb-6">Update </h1>
 
       <form className="space-y-6" onSubmit={handleSubmit}>
         {/* Text input */}
