@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import axios from 'axios'
-
+import { Link } from 'react-router-dom'
 function ListPage() {
   const [tours, setTours] = useState([])
 
@@ -58,7 +58,14 @@ function ListPage() {
                 </td>
                 <td className="px-4 py-2 border border-gray-300">....</td>
                 <td className="px-4 py-2 border border-gray-300">
-                  <button onClick={() => handleDelete(tour.id)}>Delete</button>
+                  <div className="flex gap-2">
+                    <button onClick={() => handleDelete(tour.id)}>
+                      Delete
+                    </button>
+                    <Link to={`/edit/${tour.id}`}>
+                      <button>Edit</button>
+                    </Link>
+                  </div>
                 </td>
               </tr>
             ))}
