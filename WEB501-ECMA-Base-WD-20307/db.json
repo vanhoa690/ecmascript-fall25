@@ -39,7 +39,7 @@
       "id": 7
     },
     {
-      "name": "ha long",
+      "name": "ha long update",
       "price": 200000,
       "category": "",
       "id": 8
@@ -65,14 +65,8 @@
     {
       "name": "ha long",
       "price": 22222,
-      "category": "Tour noi dia",
-      "id": 12
-    },
-    {
-      "name": "ha long",
-      "price": 22222,
       "category": "Tour quoc te",
-      "id": 13
+      "id": 12
     }
   ]
 }

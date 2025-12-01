@@ -24,14 +24,13 @@ function EditPage() {
     getTour()
   }, [id])
 
-  // handleChange
   const handleSubmit = async event => {
     event.preventDefault()
     try {
       await axios.put(`http://localhost:3000/tours/${id}`, {
-        name, // es6
+        name,
         price: Number(price),
-        category: category,
+        category,
       })
       toast.success('update thanh cong')
     } catch (error) {
