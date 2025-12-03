@@ -3,6 +3,8 @@ import { Route, Routes, Link } from 'react-router-dom';
 import ListPage from './pages/List';
 import AddPage from './pages/Add';
 import EditPage from './pages/Edit';
+import RegisterPage from './pages/Register';
+import LoginPage from './pages/Login';
 
 function App() {
   return (
@@ -29,12 +31,12 @@ function App() {
 
           {/* Right menu desktop */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#" className="hover:text-gray-200">
+            <Link to="/login" className="hover:text-gray-200">
               Đăng nhập
-            </a>
-            <a href="#" className="hover:text-gray-200">
+            </Link>
+            <Link to="/register" className="hover:text-gray-200">
               Đăng ký
-            </a>
+            </Link>
           </div>
         </div>
       </nav>
@@ -45,6 +47,8 @@ function App() {
           <Route path="/list" element={<ListPage />} />
           <Route path="/add" element={<AddPage />} />
           <Route path="/edit/:id" element={<EditPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/login" element={<LoginPage />} />
         </Routes>
       </div>
       <Toaster />

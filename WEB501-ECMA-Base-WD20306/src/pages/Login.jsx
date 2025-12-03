@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 
-function RegisterPage() {
+function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -11,11 +11,12 @@ function RegisterPage() {
   const handleSubmit = async event => {
     event.preventDefault(); // ngan can load form
     try {
-      await axios.post(' http://localhost:3000/register', {
+      const { data } = await axios.post(' http://localhost:3000/login', {
         email,
         password,
       });
-      toast.success('Them tour duoc roi');
+      //   toast.success('Them tour duoc roi');
+      localStorage.setItem('token', data.accessToken);
     } catch (error) {
       toast.error(error.message);
     }
@@ -63,4 +64,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default LoginPage;

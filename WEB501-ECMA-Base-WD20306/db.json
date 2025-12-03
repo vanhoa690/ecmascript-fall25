@@ -27,5 +27,16 @@
       "id": 15
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "email@gmail.com",
+      "password": "$2a$10$X8Rtd3q1ppXdG/v/TauHEuiUxObCj9WRLy0SjsJHjGRCjFtWobf42",
+      "id": 1
+    },
+    {
+      "email": "email1@gmail.com",
+      "password": "$2a$10$l2yd6HeiyfEvZfr.bR3rOOPcbqWhICr6PzG/EoHh/ugjqdz6vZNze",
+      "id": 2
+    }
+  ]
 }
