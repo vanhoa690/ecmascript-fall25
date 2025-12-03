@@ -68,5 +68,17 @@
       "category": "Tour quoc te",
       "id": 12
     }
+  ],
+  "users": [
+    {
+      "email": "email@gmail.com",
+      "password": "$2a$10$cMHUBiWq.8FGc9BhcPMibueS8s/WOZGZfiTzTTHwPxEioB6As/qFS",
+      "id": 1
+    },
+    {
+      "email": "email1@gmail.com",
+      "password": "$2a$10$NPUh5gZ7IXLqd2.Ie9NA7u2Pt83XHXxvkn0Zg/4Wm4jCyyIYzQLAe",
+      "id": 2
+    }
   ]
 }
