@@ -5,6 +5,7 @@ import AddPage from './pages/Add'
 import EditPage from './pages/Edit'
 import RegisterPage from './pages/Register'
 import LoginPage from './pages/Login'
+import AdminLayout from './layouts/AdminLayout'
 
 function App() {
   return (
@@ -41,9 +42,11 @@ function App() {
       {/* MAIN CONTENT */}
       <div className="max-w-6xl mx-auto mt-10 px-4 text-center">
         <Routes>
-          <Route path="/list" element={<ListPage />} />
-          <Route path="/add" element={<AddPage />} />
-          <Route path="/edit/:id" element={<EditPage />} />
+          <Route element={<AdminLayout />}>
+            <Route path="/list" element={<ListPage />} />
+            <Route path="/add" element={<AddPage />} />
+            <Route path="/edit/:id" element={<EditPage />} />
+          </Route>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
         </Routes>
