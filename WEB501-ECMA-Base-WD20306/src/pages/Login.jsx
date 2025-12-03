@@ -23,7 +23,7 @@ function LoginPage() {
   };
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
+      <h1 className="text-2xl font-semibold mb-6">Login</h1>
 
       <form className="space-y-6" onSubmit={handleSubmit}>
         {/* Text input */}
