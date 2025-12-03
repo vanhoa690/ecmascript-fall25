@@ -1,6 +1,6 @@
 import { Navigate, Outlet } from 'react-router-dom';
 
-const AdminLayout = props => {
+const AdminLayout = () => {
   // check login hay chua
   // token trong localstorage
   const token = localStorage.getItem('token');

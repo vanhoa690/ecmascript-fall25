@@ -41,10 +41,10 @@ function ListPage() {
                 First
               </th>
               <th className="px-4 py-2 border border-gray-300 text-left">
-                Last
+                Toogle Active
               </th>
               <th className="px-4 py-2 border border-gray-300 text-left">
-                Handle
+                Toogle Active
               </th>
             </tr>
           </thead>
@@ -55,6 +55,15 @@ function ListPage() {
                 <td className="px-4 py-2 border border-gray-300">{tour.id}</td>
                 <td className="px-4 py-2 border border-gray-300">Mark</td>
                 <td className="px-4 py-2 border border-gray-300">Otto</td>
+                <td>
+                  <label class="inline-flex items-center cursor-pointer">
+                    <input type="checkbox" class="sr-only peer" id="switch1" />
+                    <div class="w-11 h-6 bg-gray-300 peer-checked:bg-blue-600 rounded-full peer-focus:ring-2 peer-focus:ring-blue-300 transition-colors duration-200"></div>
+                    <span class="ml-3 text-sm font-medium text-gray-700">
+                      Bật / Tắt
+                    </span>
+                  </label>
+                </td>
                 <td className="px-4 py-2 border border-gray-300">
                   <div className="flex gap-2">
                     <button onClick={() => handleDelete(tour.id)}>
