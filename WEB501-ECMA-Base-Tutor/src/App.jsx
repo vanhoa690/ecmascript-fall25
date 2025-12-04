@@ -41,8 +41,11 @@ function App() {
         <h1 className="text-4xl font-bold mb-4">Chào mừng đến với WEB501</h1>
         <p className="text-lg text-gray-600">Ứng dụng quản lý dữ liệu</p>
         <Routes>
+          {/* check login: user.id = 1, token, user  => Outlet , Navagiate login*/}
+          {/* <Route element={}> */}
           <Route path="/list" element={<ListPage />}></Route>
           <Route path="/add" element={<AddPage />}></Route>
+          {/* </Route> */}
           <Route path="/edit/:id" element={<EditPage />}></Route>
         </Routes>
       </div>
