@@ -35,7 +35,7 @@ chuyên sâu)
 
 ### 2.1. Hiển thị danh sách khoa học
 
-- Hiển thị dưới dạng bảng hoặc card
+- Hiển thị dưới dạng bảng
 - Cho phép tìm kiếm theo tên
 
 ### 2.2. Thêm khoa học mới
