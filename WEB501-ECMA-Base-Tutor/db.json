@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "name": "Vật lý lượng tử",
+    "studyTime": 40,
+    "description": "Nghiên cứu hành vi của vật chất ở cấp độ vi mô",
+    "level": "Chuyên sâu"
+  },
+  {
+    "id": 2,
+    "name": "Hóa học hữu cơ",
+    "studyTime": 60,
+    "description": "Nghiên cứu hợp chất của carbon",
+    "level": "Nâng cao"
+  }
+]
