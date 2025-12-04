@@ -5,39 +5,58 @@ import toast from 'react-hot-toast'
 function Add() {
   const [name, setName] = useState('')
   const [cagetory, setCatory] = useState('')
+  // const [message, setMessage] = useState('')
 
   const [errors, setErrors] = useState({})
-
+  const validateData = () => {
+    let message
+    if (!name || !cagetory) {
+      message = 'dien thong name, category'
+    }
+    if (name && name.length < 6) {
+      message = 'name lon hon 6'
+    }
+    if (price && pirce < 0) {
+      message = 'name lon hon 6'
+    }
+    return message
+  }
   const handleTourNameChange = e => {
     const value = e.target.value
     setName(value)
-    if (errors.tourName) {
-      const newErrors = validateTourName(value)
-      setErrors(newErrors)
-    }
+    // if (errors.tourName) {
+    //   const newErrors = validateTourName(value)
+    //   setErrors(newErrors)
+    // }
   }
 
   const handleSubmit = async e => {
     e.preventDefault()
-    const newErrors = validateTourName(name)
-    console.log(newErrors)
-    if (Object.keys(newErrors).length === 0) {
-      console.log('Tour Name:', name)
-    } else {
-      setErrors(newErrors)
+    // const newErrors = validateTourName(name)
+    // console.log(newErrors)
+    // if (Object.keys(newErrors).length === 0) {
+    //   console.log('Tour Name:', name)
+    // } else {
+    //   setErrors(newErrors)
+    // }
+    const message = validateData()
+
+    if (message) {
+      toast.error(message)
+      return
     }
-    await axios.post('http://localhost:3000/tours', { name, cagetory })
+    // await axios.post('http://localhost:3000/tours', { name, cagetory })
     toast.success('Add done ')
   }
 
-  const validateTourName = name => {
-    const newErrors = {}
+  // const validateTourName = name => {
+  //   const newErrors = {}
 
-    if (!name.trim()) {
-      newErrors.tourName = 'Tour name is required'
-    }
-    return newErrors
-  }
+  //   if (!name.trim()) {
+  //     newErrors.tourName = 'Tour name is required'
+  //   }
+  //   return newErrors
+  // }
   return (
     <div className="p-6">
       <h1 className="text-2xl font-semibold mb-6">Thêm mới</h1>
